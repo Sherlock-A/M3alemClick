@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+@layer components {
+
+    /* Buttons */
+    .btn-primary   { @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 active:scale-95 transition-all font-medium text-sm shadow-sm; }
+    .btn-secondary { @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 active:scale-95 transition-all font-medium text-sm; }
+    .btn-danger    { @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 active:scale-95 transition-all font-medium text-sm; }
+    .btn-success   { @apply bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 active:scale-95 transition-all font-medium text-sm; }
+    .btn-whatsapp  { @apply bg-green-500 hover:bg-green-600 active:scale-95 text-white font-semibold px-5 py-2.5 rounded-xl transition-all flex items-center space-x-2 shadow-md; }
+
+    /* Cards */
+    .card       { @apply bg-white rounded-xl shadow-sm border border-gray-100; }
+    .card-hover { @apply card hover:shadow-md hover:-translate-y-0.5 transition-all duration-200; }
+
+    /* Inputs */
+    .input-field       { @apply w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white placeholder-gray-400; }
+    .input-field-error { @apply input-field border-red-400 focus:ring-red-400; }
+
+    /* Badges */
+    .badge-available { @apply bg-green-100  text-green-700  text-xs px-2.5 py-1 rounded-full font-medium; }
+    .badge-busy      { @apply bg-yellow-100 text-yellow-700 text-xs px-2.5 py-1 rounded-full font-medium; }
+    .badge-closed    { @apply bg-red-100    text-red-700    text-xs px-2.5 py-1 rounded-full font-medium; }
+    .badge-pending   { @apply bg-yellow-100 text-yellow-700 text-xs px-2.5 py-1 rounded-full font-medium; }
+    .badge-active    { @apply bg-green-100  text-green-700  text-xs px-2.5 py-1 rounded-full font-medium; }
+    .badge-refused   { @apply bg-red-100    text-red-700    text-xs px-2.5 py-1 rounded-full font-medium; }
+
+    /* Skeleton */
+    .skeleton {
+        @apply rounded bg-gray-200;
+        background: linear-gradient(90deg, #e5e7eb 25%, #f9fafb 50%, #e5e7eb 75%);
+        background-size: 200% 100%;
+        animation: skeleton 1.5s ease-in-out infinite;
+    }
+
+    /* Toast */
+    .toast         { @apply fixed top-5 right-5 z-[9999] flex items-center space-x-3 px-5 py-4 rounded-xl shadow-2xl text-sm font-medium; min-width: 280px; animation: slideDown .3s ease-out both; }
+    .toast-success { @apply toast bg-green-600 text-white; }
+    .toast-error   { @apply toast bg-red-600   text-white; }
+    .toast-info    { @apply toast bg-blue-600  text-white; }
+    .toast-warning { @apply toast bg-yellow-500 text-white; }
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes fadeIn    { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp   { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn   { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes skeleton  { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+@layer utilities {
+    .animate-fade-in    { animation: fadeIn .35s ease-out both; }
+    .animate-slide-up   { animation: slideUp .4s ease-out both; }
+    .animate-slide-down { animation: slideDown .3s ease-out both; }
+    .animate-scale-in   { animation: scaleIn .25s ease-out both; }
+    .delay-100  { animation-delay: 100ms; }
+    .delay-200  { animation-delay: 200ms; }
+    .delay-300  { animation-delay: 300ms; }
+    .delay-500  { animation-delay: 500ms; }
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: #f3f4f6; }
+::-webkit-scrollbar-thumb  { background: #d1d5db; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
